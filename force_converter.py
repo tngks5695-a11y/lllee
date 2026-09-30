@@ -251,7 +251,10 @@ def build_gui():
 
     def append_char(char):
         hide_error()
-        value_var.set(value_var.get() + char)
+        current = value_var.get()
+        if char == "." and "." in current:
+            return
+        value_var.set(current + char)
         value_entry.icursor(tk.END)
 
     def handle_backspace():
